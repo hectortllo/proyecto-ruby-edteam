@@ -1,0 +1,2 @@
+{:name=>"probando ruby", :state=>0}
+{:name=>"editando", :state=>1}

@@ -27,4 +27,19 @@ class Archive
     File.new("./dist/tasks.txt", "w")
   end
 
+  def read_file_tasks
+    File.open("./dist/tasks.txt", "r") do |f|
+      while line = f.gets
+        line = eval(line)
+        $manager.append(line)
+      end
+    end
+    $manager
+  end
+
+  def write_file_tasks
+    File.open("./dist/tasks.txt", "w") do |f|
+      f.puts $manager
+    end
+  end
 end

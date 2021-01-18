@@ -1,3 +1,4 @@
+require './src/manager.rb'
 require './src/archive.rb'
 require 'bcrypt'
 require 'io/console'
@@ -8,6 +9,7 @@ class Login
     @user_info = []
     @username, @password = '', ''
     @file = Archive.new
+    @manager = Manager.new
   end
 
   def user_exist?
@@ -19,7 +21,9 @@ class Login
       @user_info.each do |credential|
         credential.gsub!("\n", "")
       end
+
       current_user
+      @manager.menu
     end
   end
 
